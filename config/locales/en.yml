@@ -55,14 +55,14 @@ en:
     priority_mail_international_large_flat_rate_box: "USPS Priority Mail International Large Flat Rate Box"
     global_express_guaranteed: "USPS Global Express Guaranteed (GXG)"
   canada_post:
-    regular: "Canada Post Regular"
-    expedited: "Canada Post Expedited"
-    xpresspost: "Canada Post Xpresspost"
-    priority_worldwide_intl: "Canada Post Priority Worldwide INTL"
-    xpresspost_international: "Canada Post XPressPost International"
-    small_packets_air: "Canada Post Small Packets Air"
-    parcel_surface: "Canada Post Parcel Surface"
-    small_packets_surface: "Canada Post Small Packets Surface"
+    regular: "old Canada Post Regular"
+    expedited: "old Canada Post Expedited"
+    xpresspost: "old Canada Post Xpresspost"
+    priority_worldwide_intl: "old Canada Post Priority Worldwide INTL"
+    xpresspost_international: "old Canada Post XPressPost International"
+    small_packets_air: "old Canada Post Small Packets Air"
+    parcel_surface: "old Canada Post Parcel Surface"
+    small_packets_surface: "old Canada Post Small Packets Surface"
   canada_post_pws:
     regular: Regular Parcel
     expedited: Expedited Parcel

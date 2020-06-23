@@ -1,0 +1,45 @@
+<% groups = Spree::PwsShippingManifest.get_groups %>
+
+<div data-hook="admin_inside_shipping_manifest_form">
+
+  <div class="row">
+
+    <div class="col-md-4">
+
+      <%= f.field_container :name, class: ['form-group'] do %>
+          <%= f.label :name, Spree.t(:name) %> <span class="required">*</span><br />
+          <%= f.text_field  :name, :class => 'form-control' %>
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>
+
+<h5>Groupes de colis inclus dans le manifeste </h5>
+
+<table>
+  <tr>
+  <td>&nbsp;</td>
+  <td>étiquette</td>
+  <td>colis contenus dans le groupe</td>
+  </tr>
+<% groups.shipment_groups.each_with_index do |g, index|  %>
+
+    <%= f.fields_for :shipping_groups do |group| %>
+          <tr>
+          <td>
+        <%= check_box_tag "pws_shipping_manifest[shipping_groups_attributes][#{index}][name]", g.group_id %>
+          </td>
+          <td>
+          <%= group.label g.group_id %>
+          </td>
+            <td>
+              <a href="<%= g.link[0].insert(8, "#{Spree::ActiveShipping::Config[:canada_post_pws_userid]}:#{Spree::ActiveShipping::Config[:canada_post_pws_password]}@") %>">lien</a>
+            </td>
+          </tr>
+    <% end %>
+
+<% end %>
+</table>

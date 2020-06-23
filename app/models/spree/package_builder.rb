@@ -5,7 +5,19 @@ module Spree
     def process(solidus_package, max_weight)
       # We compute and set the max_weight once, at the beginning of the process
       @max_weight = max_weight
-      to_packages(solidus_package)
+
+      if(solidus_package.shipment.height &&
+          solidus_package.shipment.width &&
+          solidus_package.shipment.length &&
+          solidus_package.shipment.weight )
+        return [::ActiveShipping::Package.new(solidus_package.shipment.weight,
+                                              [solidus_package.shipment.height,
+                                               solidus_package.shipment.width,
+                                               solidus_package.shipment.length ], units: units)]
+      else
+        return to_packages(solidus_package)
+
+      end
     end
 
     private

@@ -121,6 +121,7 @@ module Spree
         end
 
         def retrieve_rates(origin, destination, shipment_packages)
+
           response = carrier.find_rates(origin, destination, shipment_packages)
           # turn this beastly array into a nice little hash
           rates = response.rates.collect do |rate|

@@ -1,3 +1,4 @@
+# This migration comes from solidus_active_shipping_engine (originally 20130107030221)
 class CreateProductPackages < SolidusSupport::Migration[4.2]
   def change
     create_table :spree_product_packages do |t|

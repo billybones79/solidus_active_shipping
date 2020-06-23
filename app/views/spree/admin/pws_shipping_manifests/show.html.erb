@@ -1,0 +1,69 @@
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @shipping_manifest } %>
+
+<div data-hook="admin_user_lifetime_stats" class="panel panel-default">
+
+<div class="panel-heading">
+  <h1 class="panel-title">
+    Manifeste
+  </h1>
+</div>
+
+<table class="table" id="user-lifetime-stats" data-hook="">
+  <tbody><tr>
+
+  </tr>
+  <tr>
+    <td>Date de création</td>
+    <td><%= @shipping_manifest.created_at %></td>
+  </tr>
+
+  <tr>
+    <td>Nom</td>
+    <td><%= @shipping_manifest.name ||= "N/A" %></td>
+  </tr>
+
+  <tr>
+    <td>État du manifeste</td>
+    <td><%= t("manifest.#{@shipping_manifest.state}")%></td>
+  </tr>
+
+  <tr>
+    <td>Rapport imprimable</td>
+    <td><%= @shipping_manifest.manifest_url ? link_to("Rapport", @shipping_manifest.manifest_url.insert(8, "#{Spree::ActiveShipping::Config[:canada_post_pws_userid]}:#{Spree::ActiveShipping::Config[:canada_post_pws_password]}@")) : "N/A" %></td>
+  </tr>
+  </tbody></table>
+</div>
+
+<% if @shipping_manifest.pending? %>
+<%= link_to Spree.t(:transmit), 'javascript:;', class: 'transmit pull-right btn btn-success', data: { 'manifest-number' => @shipping_manifest.id } %>
+<% elsif @shipping_manifest.transmitted? %>
+<%= link_to Spree.t(:confirm), 'javascript:;', class: 'get-manifest pull-right btn btn-success', data: { 'manifest-number' => @shipping_manifest.id } %>
+<% end %>
+
+
+<h4>Groupes de colis</h4>
+<% unless @shipping_manifest.shipping_groups.any? %>
+    <div class="alert alert-warning">
+      <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::ShippingGroup)) %>.
+    </div>
+<% else %>
+    <table class="table sortable" data-hook="images_table">
+      <thead>
+      <tr data-hook="images_header">
+        <th colspan="2">
+          <%= Spree.t(:name) %>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <% (@shipping_manifest.shipping_groups).each do |image| %>
+          <tr id="<%= spree_dom_id image %>" data-hook="images_row" class="<%= cycle('odd', 'even')%>">
+            <td>
+              <%= image.name %>
+            </td>
+
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
