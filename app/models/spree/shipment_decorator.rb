@@ -156,7 +156,8 @@ module Spree::ShipmentDecorator
     if used_shipping_rate.nil?
       raise "Information incomplète"
     else
-      if used_shipping_rate.shipping_method_code == "EM" || used_shipping_rate.shipping_method_code == "RM"
+
+      if !used_shipping_rate.shipping_method_code || used_shipping_rate.shipping_method_code == "EM" || used_shipping_rate.shipping_method_code == "RM"
         return true
       end
 
