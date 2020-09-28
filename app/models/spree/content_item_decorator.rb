@@ -1,5 +1,5 @@
 module Spree
-  module Stock::ContentDecorator
+  module Stock::ContentItemDecorator
     def self.prepended(base)
       delegate :has_product_packages?, to: :variant, prefix: true
     end
