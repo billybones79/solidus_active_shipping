@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'solidus_active_shipping'
-  s.version     = '1.0.3'
+  s.version     = '1.0.4'
   s.author      = ['Solidus Team']
   s.email       = 'contact@solidus.io'
   s.homepage    = 'http://solidus.io'
@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'solidus_backend', ['> 1.0', '<3']
   s.add_dependency 'solidus_api', ['> 1.0', '<3']
   s.add_dependency 'active_shipping'
+  s.add_dependency 'combine_pdf'
   s.add_development_dependency 'pry'
   s.add_development_dependency 'webmock'
   s.add_development_dependency 'simplecov'

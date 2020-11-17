@@ -40,6 +40,7 @@ module Spree::ShipmentDecorator
 
 
   def refresh_rates
+
     return shipping_rates if shipped?
     return [] unless can_get_rates?
 
@@ -62,8 +63,15 @@ module Spree::ShipmentDecorator
       end
     end
 
+
     self.shipping_rates = new_rates
     save!
+
+    #side_effect.exe
+    unless used_shipping_rate
+      set_default_backend_shipping
+    end
+
 
     shipping_rates
 

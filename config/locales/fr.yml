@@ -1,5 +1,10 @@
 ---
 fr:
+  activerecord:
+    attributes:
+      spree/shipment:
+        tracking: numéro de tracking
+
   canada_post:
     regular: "OLD Postes Canada Colis standard"
     expedited: "OLD Postes Canada Colis accélérés"

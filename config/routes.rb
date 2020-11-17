@@ -5,6 +5,13 @@ Spree::Core::Engine.routes.draw do
         put :transmit
       end
     end
+    resources :orders do
+      member do
+        get :labels, as: "labels"
+      end
+    end
+
+    get "/shipments/:id/labels" , to:"orders#shipment_label", as: "shipment_labels"
 
     resource :active_shipping_settings, :only => ['show', 'update', 'edit']
 
