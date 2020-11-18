@@ -1,5 +1,16 @@
 Spree::Core::Engine.routes.draw do
+  namespace :api, defaults: { format: 'json' } do
+    resources :pws_shipping_manifests do
+      member do
+        put :transmit
+        put :confirm
+      end
+    end
+  end
+
   namespace :admin do
+
+
     resources :pws_shipping_manifests do
       member do
         put :transmit
