@@ -18,7 +18,7 @@ module Spree::Admin::OrdersControllerDecorator
     pdf = ::CombinePDF.new
     pdf << ::CombinePDF.load(label_file.path) # one way to combine, very fast.
     pdf << ::CombinePDF.load(return_file.path)
-    pdf.save "combined.pdf"
+    pdf.save "/tmp/combined.pdf"
     send_data pdf.to_pdf, filename: @order.number+".pdf", type: "application/pdf"
   end
 
@@ -49,7 +49,7 @@ module Spree::Admin::OrdersControllerDecorator
     pdf = ::CombinePDF.new
     pdf << ::CombinePDF.load(label_file.path) # one way to combine, very fast.
     pdf << ::CombinePDF.load(return_file.path)
-    pdf.save "combined.pdf"
+    pdf.save "/tmp/combined.pdf"
     send_data pdf.to_pdf, filename: @shipment.number+".pdf", type: "application/pdf"
   end
 
