@@ -3,14 +3,14 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'solidus_active_shipping'
-  s.version     = '1.0.4'
+  s.version     = '1.0.6'
   s.author      = ['Solidus Team']
   s.email       = 'contact@solidus.io'
   s.homepage    = 'http://solidus.io'
   s.summary     = 'Solidus extension for the active_shipping plugin.'
   s.description = 'Provide shipping rates and tracking for Active Merchant carriers'
   s.required_ruby_version = '>= 1.9.3'
-  s.rubygems_version      = '1.3.9'
+  s.rubygems_version      = '1.3.7'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
