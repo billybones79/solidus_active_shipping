@@ -112,6 +112,7 @@ $(document).ready(function () {
         }).done(function () {
             window.location.reload();
         }).error(function (msg) {
+            window.location.reload();
             var response = "<div class='alert alert-danger alert'>"+msg.responseText+"</div>"
             $("#content").prepend(response);
         });
@@ -135,6 +136,8 @@ $(document).ready(function () {
         }).done(function () {
             window.location.reload();
         }).error(function (msg) {
+            window.location.reload();
+
             var response = "<div class='alert alert-danger alert'>"+msg.responseText+"</div>"
             $("#content").prepend(response);
         });
