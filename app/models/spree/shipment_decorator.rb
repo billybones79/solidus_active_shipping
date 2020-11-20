@@ -193,11 +193,13 @@ module Spree::ShipmentDecorator
               :address1 => address.address1,
               :address2 => address.address2,
               :phone => address.phone)
-
           if width && width > 0.0 && length && length > 0.0 && height && height > 0.0
-            package = ActiveShipping::Package.new(weight , [length, width, height], :units => :metric)  # not grams, not centimetres
+            #lbs - > kilo
+            # package = ActiveShipping::Package.new(weight * 2.2 , [length, width, height], :units => :metric)  # not grams, not centimetres
+            package = ActiveShipping::Package.new(weight * 2.2 , [], :units => :metric)  # not grams, not centimetres
+
           else
-            package = ActiveShipping::Package.new(weight , [], :units => :metric)  # not grams, not centimetres
+            package = ActiveShipping::Package.new(weight * 2.2 , [], :units => :metric)  # not grams, not centimetres
           end
 
 
@@ -219,7 +221,6 @@ module Spree::ShipmentDecorator
           #cpws.get_groups(opts)
 
           shipment = cpws.create_contract_shipment(from, to, package,'', opts)
-
           canada_post_tracking_url(shipment.tracking_number, shipment.label_url, shipment.return_label_url)
 
         end
