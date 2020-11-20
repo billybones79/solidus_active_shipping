@@ -67,7 +67,7 @@ require 'ostruct'
 
       from = ActiveShipping::Location.new(  :country => stock_location.country.iso,
                                             :state => stock_location.state.abbr,
-                                            :company => 'Eugene Allard',
+                                            :company => 'Chlorophylle',
                                             :city => stock_location.city,
                                             :zip => stock_location.zipcode,
                                             :address1 => stock_location.address1,

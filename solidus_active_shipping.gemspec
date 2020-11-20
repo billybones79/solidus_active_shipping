@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'solidus_active_shipping'
-  s.version     = '1.0.7'
+  s.version     = '1.0.8'
   s.author      = ['Solidus Team']
   s.email       = 'contact@solidus.io'
   s.homepage    = 'http://solidus.io'
