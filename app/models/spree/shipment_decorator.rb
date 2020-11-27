@@ -195,11 +195,11 @@ module Spree::ShipmentDecorator
               :phone => address.phone)
           if width && width > 0.0 && length && length > 0.0 && height && height > 0.0
             #lbs - > kilo
-            # package = ActiveShipping::Package.new(weight * 2.2 , [length, width, height], :units => :metric)  # not grams, not centimetres
-            package = ActiveShipping::Package.new(weight * 2.2 , [], :units => :metric)  # not grams, not centimetres
+            # package = ActiveShipping::Package.new(weight / 2.2 , [length, width, height], :units => :metric)  # not grams, not centimetres
+            package = ActiveShipping::Package.new(weight / 2.2 , [], :units => :metric)  # not grams, not centimetres
 
           else
-            package = ActiveShipping::Package.new(weight * 2.2 , [], :units => :metric)  # not grams, not centimetres
+            package = ActiveShipping::Package.new(weight / 2.2 , [], :units => :metric)  # not grams, not centimetres
           end
 
 
