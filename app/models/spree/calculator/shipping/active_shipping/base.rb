@@ -192,7 +192,7 @@ module Spree
         end
 
         def retrieve_rates_from_cache(package, origin, destination, max_weight)
-          Rails.cache.fetch([cache_key(package), origin, destination]) do
+          rates = Rails.cache.fetch([cache_key(package), origin, destination]) do
             shipment_packages = package_builder.process(package, max_weight)
             # shipment_packages = packages(package)
             if shipment_packages.empty?
@@ -201,6 +201,7 @@ module Spree
               retrieve_rates(origin, destination, shipment_packages)
             end
           end
+          rates
         end
       end
     end
